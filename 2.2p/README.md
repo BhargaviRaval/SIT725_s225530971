@@ -2,7 +2,8 @@ Features:
 1) It adds to values.
 2) After adding the values it will show the results instantly.
 3) It also shows the history lists of previous additions.
-4) It has unique and mordern UI.
+4) It will also add on the URL.
+5) It has unique and mordern UI.
 
 Technologies Used:
 1) HTML
@@ -25,6 +26,8 @@ How to Run the Project:
    node server.js
 3) Open the Browser and vist
    http://localhost:3000
+4) For the URL
+   http://localhost:3000/add?num1=15&num2=25
 
 How to use The Addition Calculator:
 1) Users have to entre two values.
