@@ -9,7 +9,7 @@ addBtn.addEventListener('click', async () => {
   const num2 = parseFloat(num2Input.value);
 
   if (isNaN(num1) || isNaN(num2)) {
-    resultEl.textContent = 'Enter the valid number.';
+    resultEl.textContent = 'Please enter valid numbers!';
     return;
   }
 
