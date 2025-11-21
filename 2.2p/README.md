@@ -9,7 +9,15 @@ Technologies Used:
 2) JavaScript
 3) CSS
 4) Node.js + Express
-
+   
+Files to be seen:
+1) In public
+   2.js
+   2.html
+   2.css
+2) Server.js
+3) README.md
+   
 How to Run the Project:
 1) Firstly Install dependencies
    npm install
