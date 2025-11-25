@@ -1,9 +1,14 @@
 const express = require('express');
+const path = require('path');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
-app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'public/2.html'));
+});
 
 app.get('/api', (req, res) => {
   res.json({
@@ -24,13 +29,11 @@ app.get('/add', (req, res) => {
     return res.status(400).json({ error: 'Invalid numbers. Use /add?num1=5&num2=3' });
   }
 
-  const result = num1 + num2;
-  res.json({ 
+  res.json({
     operation: 'addition',
-    num1, 
-    num2, 
-    result,
-    expression: `${num1} + ${num2} = ${result}`
+    num1,
+    num2,
+    result: num1 + num2
   });
 });
 
@@ -41,8 +44,9 @@ app.post('/add', (req, res) => {
     return res.status(400).json({ error: 'Invalid numbers' });
   }
 
-  const result = num1 + num2;
-  res.json({ num1, num2, result });
+  res.json({ result: num1 + num2 });
 });
 
-app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
+});
