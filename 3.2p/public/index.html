@@ -7,19 +7,15 @@
     <meta name="description" content="SIT725 Prac 3">
     <meta name="author" content="Your Name">
 
-    <!-- Materialize CSS -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <!-- Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<!-- NAVBAR -->
 <nav>
     <div class="nav-wrapper navbar-size">
         <a href="#home" class="brand-logo">
@@ -35,8 +31,6 @@
 </nav>
 
 <main>
-
-    <!-- HOME SECTION -->
     <section id="home" class="section-padding section-home">
         <div class="container">
             <div class="row">
@@ -56,7 +50,6 @@
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
     <section id="about" class="section-padding section-about">
         <div class="container">
             <h4 class="section-title center-align">About the Web Page</h4>
@@ -69,19 +62,18 @@
                 <div id="aboutDetails" class="about-box-body">
                     <p>
                         This web page is built for SIT725 task 3.2p to demonstrate bootstrapping an
-                        Express app with a simple REST API and a Materialize front‑end.
+                        Express app with a simple REST API and a Materialize frontend.
                     </p>
                     <p>
-                        The server exposes a single de>/api/books</code> endpoint that returns
-                        book data as JSON, and the client uses JavaScript to fetch that data and show
-                        it as responsive cards with a genre filter and a slide‑up details panel.
+                        The server provides a single endpoint /api/books that delivers book information in JSON format, 
+                        and the client side uses JavaScript to request that information and present it in a responsive 
+                        card format along with other features such as a genre filter and sliding up details.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-      <!-- BOOKS SECTION -->
     <section id="books" class="section-padding section-books">
         <div class="container">
             <div class="row valign-wrapper">
@@ -96,11 +88,9 @@
             </div>
 
             <div class="row" id="card-section">
-                <!-- Cards injected by scripts.js -->
             </div>
         </div>
     </section>
-<!-- ADD BOOK MODAL -->
 <div id="addBookModal" class="modal">
   <div class="modal-content">
     <h4>Add New Book</h4>
@@ -142,7 +132,6 @@
   </div>
 </div>
 
-    <!-- CONTACT SECTION -->
     <section id="contact" class="section-padding section-contact">
         <div class="container">
             <h4 class="section-title center-align">Contact</h4>
@@ -167,26 +156,20 @@
 
 </main>
 
-<!-- FOOTER -->
 <footer class="page-footer footer-main">
     <div class="container">
         <div class="row">
             <div class="col s12">
                 <span class="white-text">
-                    SIT725 Prac 3 – Books Demo (Express + Materialize + REST)
+                    SIT725 Prac 3 Books Demo (Express + Materialize + REST)
                 </span>
             </div>
         </div>
     </div>
 </footer>
 
-<!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
-
-<!-- Materialize JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-<!-- Custom JS -->
 <script src="js/scripts.js"></script>
 
 </body>

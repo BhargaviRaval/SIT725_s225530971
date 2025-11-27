@@ -7,7 +7,6 @@ app.use(express.urlencoded({ extended: false }))
 
 var port = process.env.port || 3000
 
-// Book data with correct genres
 let books = [
     {
         id: 1,
@@ -47,7 +46,6 @@ let books = [
     }
 ]
 
-// GET REST endpoint
 app.get('/api/books', (req, res) => {
     res.json(books)
 })

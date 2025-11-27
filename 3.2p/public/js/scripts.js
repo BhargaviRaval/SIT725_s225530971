@@ -1,6 +1,4 @@
 let allBooks = []
-
-// GET /api/books and then render cards
 const getBooks = () => {
     console.log("Fetching /api/books ...")
     fetch('/api/books')
@@ -12,7 +10,6 @@ const getBooks = () => {
         .catch(err => console.error("Error fetching books:", err))
 }
 
-// Create cards in the #card-section
 const addCards = (books) => {
     const cardSection = document.getElementById('card-section')
     cardSection.innerHTML = ''
@@ -45,7 +42,6 @@ const addCards = (books) => {
         cardSection.innerHTML += card
     })
 
-    // click on image -> slide up/down book info
     $('.book-image-wrapper').off('click').on('click', function() {
         const id = $(this).data('id')
         const extra = $('#extra-' + id)
@@ -53,7 +49,6 @@ const addCards = (books) => {
     })
 }
 
-// Smooth scroll + hash in URL for nav links
 const setupNavScrolling = () => {
     $('.nav-link').on('click', function(e) {
         e.preventDefault()
@@ -67,7 +62,6 @@ const setupNavScrolling = () => {
     })
 }
 
-// About box slide toggle
 const setupAboutBox = () => {
     $('#aboutBox').on('click', function() {
         $('#aboutDetails').slideToggle(300)
@@ -80,7 +74,6 @@ const setupAboutBox = () => {
     })
 }
 
-// Open modal when Add Book button clicked
 const setupAddBookButton = () => {
     $('#addBookBtn').on('click', function() {
         const modalElem = document.getElementById('addBookModal')
@@ -89,7 +82,6 @@ const setupAddBookButton = () => {
     })
 }
 
-// Handle Add Book form submit (client-side only)
 const setupAddBookForm = () => {
     $('#addBookForm').on('submit', function(e) {
         e.preventDefault()
@@ -103,13 +95,11 @@ const setupAddBookForm = () => {
             alert('Please fill in all fields.')
             return
         }
-
-        // create a new book object (client-side only)
         const newBook = {
             id: allBooks.length ? Math.max(...allBooks.map(b => b.id)) + 1 : 1,
             title: title,
             author: 'Custom Book',
-            image: 'images/t1.jpg', // placeholder image – change if you like
+            image: 'images/t1.jpg',
             description: description,
             pages: pages,
             genre: genre
@@ -117,15 +107,11 @@ const setupAddBookForm = () => {
 
         allBooks.push(newBook)
         addCards(allBooks)
-
-        // clear form
         $('#newTitle').val('')
         $('#newPages').val('')
         $('#newGenre').val('')
         $('#newDescription').val('')
         M.updateTextFields()
-
-        // close modal
         const modalElem = document.getElementById('addBookModal')
         const modalInstance = M.Modal.getInstance(modalElem)
         modalInstance.close()
@@ -135,7 +121,6 @@ const setupAddBookForm = () => {
 document.addEventListener('DOMContentLoaded', function() {
     console.log("Document ready")
 
-    // Init Materialize components
     const selectElems = document.querySelectorAll('select')
     M.FormSelect.init(selectElems)
 

@@ -1,21 +1,15 @@
-/* ================================
-   ELEGANT BOOKSTORE THEME
-   ================================ */
-
 :root {
-    --bg-page: #f5f3ff;              /* soft lilac */
+    --bg-page: #f5f3ff;              
     --bg-section: #ffffff;
     --bg-hero: linear-gradient(135deg, #ede9fe, #fef9c3);
-    --color-primary: #312e81;        /* indigo */
-    --color-secondary: #ea580c;      /* warm orange */
-    --color-accent: #22c55e;         /* green accent */
+    --color-primary: #312e81;       
+    --color-secondary: #ea580c;      
+    --color-accent: #22c55e;         
     --text-main: #111827;
     --text-muted: #6b7280;
     --border-soft: #e5e7eb;
     --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.12);
 }
-
-/* Global */
 
 * {
     box-sizing: border-box;
@@ -41,8 +35,6 @@ body {
     color: var(--color-primary);
     margin-bottom: 20px;
 }
-
-/* Navbar */
 
 .navbar-size {
     width: 95%;
@@ -77,8 +69,6 @@ nav .nav-link:hover {
     color: var(--color-secondary);
 }
 
-/* Home (hero) */
-
 .section-home {
     background: var(--bg-hero);
 }
@@ -109,8 +99,6 @@ nav .nav-link:hover {
     color: var(--color-primary);
     opacity: 0.9;
 }
-
-/* About */
 
 .section-about {
     background: transparent;
@@ -147,8 +135,6 @@ nav .nav-link:hover {
     font-size: 0.95rem;
 }
 
-/* Books */
-
 .section-books {
     background: transparent;
 }
@@ -157,14 +143,10 @@ nav .nav-link:hover {
     margin-bottom: 8px;
 }
 
-/* Add Book button */
-
 #books .btn {
     margin-top: 8px;
     border-radius: 999px;
 }
-
-/* Book cards */
 
 .book-card {
     border-radius: 20px;
@@ -216,8 +198,6 @@ nav .nav-link:hover {
     color: var(--text-muted);
 }
 
-/* Slide‑up details under each card */
-
 .book-extra {
     display: none;
     padding: 0 18px 16px;
@@ -226,8 +206,6 @@ nav .nav-link:hover {
     border-top: 1px solid var(--border-soft);
     background: #f9fafb;
 }
-
-/* Contact */
 
 .section-contact {
     background: transparent;
@@ -251,39 +229,29 @@ nav .nav-link:hover {
     color: var(--color-secondary);
 }
 
-/* Footer */
-
 .footer-main {
     background-color: #111827;
 }
 
-/* Modal (Add Book) */
-
 #addBookModal .modal-content {
     background: #f9fafb;
 }
-
 #addBookModal h4 {
     color: var(--color-primary);
     margin-bottom: 14px;
 }
-
 #addBookModal .input-field label {
     color: var(--text-muted);
 }
-
 #addBookModal .input-field input,
 #addBookModal .input-field textarea {
     color: var(--text-main);
 }
-
 #addBookModal .input-field input:focus,
 #addBookModal .input-field textarea:focus {
     border-bottom: 2px solid var(--color-secondary) !important;
     box-shadow: 0 1px 0 0 var(--color-secondary) !important;
 }
-
-/* Responsive */
 
 @media (max-width: 600px) {
     .section-padding {
