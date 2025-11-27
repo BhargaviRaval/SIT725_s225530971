@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SIT725 Prac 3 – Books</title>
+    <meta name="description" content="SIT725 Prac 3">
+    <meta name="author" content="Your Name">
+
+    <!-- Materialize CSS -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="nav-wrapper navbar-size">
+        <a href="#home" class="brand-logo">
+            <i class="material-icons">menu_book</i>
+        </a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#books" class="nav-link">Books</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main>
+
+    <!-- HOME SECTION -->
+    <section id="home" class="section-padding section-home">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m7">
+                    <h3 class="section-title">Welcome to BookShelf</h3>
+                    <p class="section-lead">
+                        SIT725 task 3.2p Bootstrapping Express app
+                    </p>
+                    <a href="#books" class="btn waves-effect waves-light btn-accent nav-link">
+                        <i class="material-icons left">arrow_downward</i>Browse Books
+                    </a>
+                </div>
+                <div class="col s12 m5 center-align hide-on-small-only">
+                    <i class="material-icons home-icon-large">local_library</i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section-padding section-about">
+        <div class="container">
+            <h4 class="section-title center-align">About the Web Page</h4>
+
+            <div id="aboutBox" class="about-box hoverable">
+                <div class="about-box-header">
+                    <span>About this page</span>
+                    <i class="material-icons about-box-icon" id="aboutIcon">expand_more</i>
+                </div>
+                <div id="aboutDetails" class="about-box-body">
+                    <p>
+                        This web page is built for SIT725 task 3.2p to demonstrate bootstrapping an
+                        Express app with a simple REST API and a Materialize front‑end.
+                    </p>
+                    <p>
+                        The server exposes a single de>/api/books</code> endpoint that returns
+                        book data as JSON, and the client uses JavaScript to fetch that data and show
+                        it as responsive cards with a genre filter and a slide‑up details panel.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+      <!-- BOOKS SECTION -->
+    <section id="books" class="section-padding section-books">
+        <div class="container">
+            <div class="row valign-wrapper">
+                <div class="col s12 m6">
+                    <h4 class="section-title">Books</h4>
+                </div>
+                <div class="col s12 m6 right-align">
+                    <a id="addBookBtn" class="btn waves-effect waves-light btn-accent">
+                        <i class="material-icons left">add</i>Add Book
+                    </a>
+                </div>
+            </div>
+
+            <div class="row" id="card-section">
+                <!-- Cards injected by scripts.js -->
+            </div>
+        </div>
+    </section>
+<!-- ADD BOOK MODAL -->
+<div id="addBookModal" class="modal">
+  <div class="modal-content">
+    <h4>Add New Book</h4>
+    <div class="row">
+      <form class="col s12" id="addBookForm">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="newTitle" type="text" required>
+            <label for="newTitle">Book Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="newPages" type="number" required>
+            <label for="newPages">Pages</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="newGenre" type="text" required>
+            <label for="newGenre">Genre</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="newDescription" class="materialize-textarea" required></textarea>
+            <label for="newDescription">Description</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 right-align">
+            <button type="submit" class="btn waves-effect waves-light btn-accent">
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section-padding section-contact">
+        <div class="container">
+            <h4 class="section-title center-align">Contact</h4>
+            <div class="row">
+                <div class="col s12 m6">
+                    <p>
+                        This is the demo page for SIT725 task 3.2p Bootstrapping Express app.
+                    </p>
+                    <p>
+                        By 225530971 Bhargavi Raval
+                    </p>
+                </div>
+                <div class="col s12 m6">
+                    <ul class="contact-list">
+                        <li><i class="material-icons">email</i>raval.bhargavi22@gmail.com</li>
+                        <li><i class="material-icons">place</i> Melbourne, Australia</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="page-footer footer-main">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <span class="white-text">
+                    SIT725 Prac 3 – Books Demo (Express + Materialize + REST)
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+
+<!-- Materialize JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<!-- Custom JS -->
+<script src="js/scripts.js"></script>
+
+</body>
+</html>

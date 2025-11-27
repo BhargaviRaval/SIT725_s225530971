@@ -1,0 +1,23 @@
+{
+  "name": "twisted-love-app",
+  "version": "1.0.0",
+  "description": "Twisted Love Book Series Application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "Nodejs",
+    "Express",
+    "Materialize",
+    "HTML",
+    "JS",
+    "CSS",
+    "Books"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
