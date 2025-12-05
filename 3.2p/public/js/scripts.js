@@ -1,16 +1,20 @@
 let allBooks = []
+
 const getBooks = () => {
     console.log("Fetching /api/books ...")
     fetch('/api/books')
         .then(res => res.json())
-        .then(data => {
-            allBooks = data
+        .then(result => {
+            console.log("API result:", result)
+            allBooks = result.data || [] 
             addCards(allBooks)
         })
         .catch(err => console.error("Error fetching books:", err))
 }
 
 const addCards = (books) => {
+    console.log("addCards got:", books)
+
     const cardSection = document.getElementById('card-section')
     cardSection.innerHTML = ''
 
@@ -21,10 +25,12 @@ const addCards = (books) => {
     }
 
     books.forEach(book => {
+        const id = book.id || book._id  
+
         const card =
         `<div class="col s12 m6 l3">
             <div class="card hoverable book-card">
-                <div class="card-image book-image-wrapper" data-id="${book.id}">
+                <div class="card-image book-image-wrapper" data-id="${id}">
                     <img src="${book.image}" alt="${book.title}">
                     <span class="card-title card-title-bg">${book.title}</span>
                 </div>
@@ -32,7 +38,7 @@ const addCards = (books) => {
                     <p class="book-author">${book.title}</p>
                     <p class="book-genre">Genre: ${book.genre}</p>
                 </div>
-                <div class="book-extra" id="extra-${book.id}">
+                <div class="book-extra" id="extra-${id}">
                     <p><strong>Author:</strong> ${book.author}</p>
                     <p><strong>Pages:</strong> ${book.pages}</p>
                     <p class="book-desc">${book.description}</p>
@@ -95,8 +101,9 @@ const setupAddBookForm = () => {
             alert('Please fill in all fields.')
             return
         }
+
         const newBook = {
-            id: allBooks.length ? Math.max(...allBooks.map(b => b.id)) + 1 : 1,
+            id: allBooks.length ? Math.max(...allBooks.map(b => b.id || 0)) + 1 : 1,
             title: title,
             author: 'Custom Book',
             image: 'images/t1.jpg',
@@ -107,11 +114,13 @@ const setupAddBookForm = () => {
 
         allBooks.push(newBook)
         addCards(allBooks)
+
         $('#newTitle').val('')
         $('#newPages').val('')
         $('#newGenre').val('')
         $('#newDescription').val('')
         M.updateTextFields()
+
         const modalElem = document.getElementById('addBookModal')
         const modalInstance = M.Modal.getInstance(modalElem)
         modalInstance.close()
