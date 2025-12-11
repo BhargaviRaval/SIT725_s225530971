@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Books Catalog</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Books Catalog</h1>
+    <p id="error"></p>
+    <div id="books-container"></div>
+
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        const container = document.getElementById('books-container');
+        const errorEl = document.getElementById('error');
+
+        fetch('/api/books')
+          .then((res) => {
+            if (!res.ok) {
+              throw new Error('Failed to load books');
+            }
+            return res.json();
+          })
+          .then((result) => {
+            const books = result.data || result;
+
+            books.forEach((book) => {
+              const card = document.createElement('div');
+              card.className = 'book-card';
+
+              const titleEl = document.createElement('div');
+              titleEl.className = 'book-title';
+              titleEl.textContent = book.title;
+
+              const authorEl = document.createElement('div');
+              authorEl.className = 'book-author';
+              authorEl.textContent = `by ${book.author}`;
+
+              const metaEl = document.createElement('div');
+              metaEl.className = 'book-year-genre';
+              metaEl.textContent = `${book.year} • ${book.genre}`;
+
+              const btn = document.createElement('button');
+              btn.className = 'show-image-btn';
+              btn.textContent = 'Show Cover';
+
+              const img = document.createElement('img');
+              img.className = 'book-image';
+              img.src = `images/${book.id}.jpg`;
+              img.alt = `${book.title} cover`;
+
+              const summaryEl = document.createElement('div');
+              summaryEl.className = 'book-summary';
+              summaryEl.textContent = book.summary;
+
+              btn.addEventListener('click', () => {
+                const hidden =
+                  img.style.display === 'none' || img.style.display === '';
+                if (hidden) {
+                  img.style.display = 'block';
+                  summaryEl.style.display = 'block';
+                  btn.textContent = 'Hide Cover';
+                } else {
+                  img.style.display = 'none';
+                  summaryEl.style.display = 'none';
+                  btn.textContent = 'Show Cover';
+                }
+              });
+
+              card.appendChild(titleEl);
+              card.appendChild(authorEl);
+              card.appendChild(metaEl);
+              card.appendChild(btn);
+              card.appendChild(img);
+              card.appendChild(summaryEl);
+
+              container.appendChild(card);
+            });
+          })
+          .catch((err) => {
+            errorEl.textContent = err.message;
+          });
+      });
+    </script>
+  </body>
+</html>
