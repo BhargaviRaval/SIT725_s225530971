@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Books 5.3C</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Books Catalogue developed by s225530971</h1>
+    <button id="load-books-btn">Get all books</button>
+
+    <p id="error"></p>
+
+    <ul id="books-list"></ul>
+
+    <div id="book-details"></div>
+
+    <script>
+      const btn = document.getElementById('load-books-btn');
+      const listEl = document.getElementById('books-list');
+      const detailsEl = document.getElementById('book-details');
+      const errorEl = document.getElementById('error');
+
+      btn.addEventListener('click', () => {
+        errorEl.textContent = '';
+        detailsEl.innerHTML = '';
+        listEl.innerHTML = '';
+
+        fetch('/api/books')
+          .then((res) => {
+            if (!res.ok) throw new Error('Failed to load books');
+            return res.json();
+          })
+          .then((result) => {
+            const books = result.data || result;
+
+            books.forEach((book) => {
+              const li = document.createElement('li');
+              li.textContent = `${book.title} ${book.price} AUD`;
+
+              li.addEventListener('click', () => {
+                fetch(`/api/books/${book.id}`)
+                  .then((res) => {
+                    if (!res.ok) throw new Error('Failed to load book');
+                    return res.json();
+                  })
+                  .then((result2) => {
+                    const b = result2.data || result2;
+                    detailsEl.innerHTML = `
+                      <h2>${b.title}</h2>
+                      <p><strong>Author:</strong> ${b.author}</p>
+                      <p><strong>Year:</strong> ${b.year}</p>
+                      <p><strong>Genre:</strong> ${b.genre}</p>
+                      <p><strong>Summary:</strong> ${b.summary}</p>
+                      <p><strong>Price:</strong> ${b.price} AUD</p>
+                    `;
+                  })
+                  .catch((err) => {
+                    errorEl.textContent = err.message;
+                  });
+              });
+
+              listEl.appendChild(li);
+            });
+          })
+          .catch((err) => {
+            errorEl.textContent = err.message;
+          });
+      });
+    </script>
+  </body>
+</html>
