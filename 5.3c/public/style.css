@@ -1,0 +1,107 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 2rem;
+  background: linear-gradient(135deg, #f0f4ff, #dfe9f3);
+  color: #222;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+#books-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.3rem;
+}
+
+#books-list {
+  list-style: none;
+  padding: 0;
+}
+
+#books-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+#books-list li span.title {
+  font-weight: bold;
+}
+
+#error {
+  color: #b00020;
+  margin-bottom: 1rem;
+}
+
+.book-card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+.book-title {
+  font-weight: bold;
+  font-size: 1.05rem;
+  margin-bottom: 0.25rem;
+}
+
+.book-author {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.35rem;
+}
+
+.book-year-genre {
+  font-size: 0.8rem;
+  color: #777;
+  margin-bottom: 0.5rem;
+}
+
+.book-summary {
+  font-size: 0.85rem;
+  color: #444;
+  margin-top: 0.5rem;
+  display: none;
+}
+
+.show-image-btn {
+  padding: 0.35rem 0.8rem;
+  border: none;
+  border-radius: 999px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: background-color 0.15s ease, transform 0.1s ease,
+    box-shadow 0.1s ease;
+}
+
+.show-image-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
+}
+
+.show-image-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.book-image {
+  display: none;
+  width: 100%;
+  margin-top: 0.75rem;
+  border-radius: 6px;
+  object-fit: cover;
+  max-height: 260px;
+}
