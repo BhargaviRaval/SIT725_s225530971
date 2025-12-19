@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Addition Calculator</h1>
+
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+
+    <button onclick="calculate()">Add Numbers</button>
+
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function calculate() {
+      const a = document.getElementById('num1').value;
+      const b = document.getElementById('num2').value;
+      const resultText = document.getElementById('result');
+
+      if (a === '' || b === '') {
+        resultText.textContent = 'Please enter both numbers';
+        return;
+      }
+
+      fetch(`/api/calc/add?a=${a}&b=${b}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data.error) {
+            resultText.textContent = data.error;
+          } else {
+            resultText.textContent = `Result: ${data.result}`;
+          }
+        })
+        .catch(() => {
+          resultText.textContent = 'Something went wrong';
+        });
+    }
+  </script>
+
+</body>
+</html>
