@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Update Status</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Update Your Status</h1>
+    <p class="subtitle">Share your current activity</p>
+
+    <div class="form">
+      <input type="text" id="username" placeholder="Your name">
+      <input type="text" id="status" placeholder="Your status">
+      <button onclick="sendStatus()">Send & View Feed</button>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
